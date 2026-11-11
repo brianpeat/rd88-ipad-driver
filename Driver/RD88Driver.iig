@@ -1,0 +1,36 @@
+//
+//  RD88Driver.iig
+//  USB audio driver for the Roland RD-88 (vendor-specific audio, 0582:024a).
+//
+
+#ifndef RD88Driver_h
+#define RD88Driver_h
+
+#include <Availability.h>
+#include <DriverKit/IOService.iig>
+#include <DriverKit/OSAction.iig>
+#include <USBDriverKit/IOUSBHostPipe.iig>
+#include <AudioDriverKit/IOUserAudioDriver.iig>
+
+using namespace AudioDriverKit;
+
+class RD88Driver: public IOUserAudioDriver
+{
+public:
+	virtual bool init() override;
+	virtual void free() override;
+
+	virtual kern_return_t Start(IOService* provider) override;
+	virtual kern_return_t Stop(IOService* provider) override;
+
+	virtual kern_return_t StartDevice(IOUserAudioObjectID in_object_id,
+									  IOUserAudioStartStopFlags in_flags) override;
+	virtual kern_return_t StopDevice(IOUserAudioObjectID in_object_id,
+									 IOUserAudioStartStopFlags in_flags) override;
+
+	// Isochronous completions: audio coming from the keyboard / going to it.
+	virtual void InComplete(OSAction* action, IOReturn status) TYPE(IOUSBHostPipe::CompleteAsyncIsochIO);
+	virtual void OutComplete(OSAction* action, IOReturn status) TYPE(IOUSBHostPipe::CompleteAsyncIsochIO);
+};
+
+#endif /* RD88Driver_h */

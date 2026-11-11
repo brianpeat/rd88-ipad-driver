@@ -1,0 +1,3 @@
+// Your Apple Developer team ID (10 characters) and a bundle ID prefix you own.
+DEVELOPMENT_TEAM = XXXXXXXXXX
+BUNDLE_PREFIX = com.yourname

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>RD-88 Audio Driver</string>
+	<key>CFBundleDisplayName</key>
+	<string>RD-88 Audio Driver</string>
+	<key>CFBundlePackageType</key>
+	<string>DEXT</string>
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+	<key>CFBundleVersion</key>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>OSBundleUsageDescription</key>
+	<string>Lets the Roland RD-88 work as a USB audio interface.</string>
+	<key>IOKitPersonalities</key>
+	<dict>
+		<key>RD88MIDIDriver</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>CFBundleIdentifierKernel</key>
+			<string>com.apple.kpi.iokit</string>
+			<key>IOClass</key>
+			<string>IOUserService</string>
+			<key>IOProviderClass</key>
+			<string>IOUSBHostInterface</string>
+			<key>IOUserClass</key>
+			<string>RD88MIDIDriver</string>
+			<key>IOUserServerName</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>idVendor</key>
+			<integer>1410</integer>
+			<key>idProduct</key>
+			<integer>586</integer>
+			<key>bInterfaceNumber</key>
+			<integer>3</integer>
+			<key>bConfigurationValue</key>
+			<integer>1</integer>
+			<key>IOUserMIDIDriverUserClientProperties</key>
+			<dict>
+				<key>IOClass</key>
+				<string>IOUserUserClient</string>
+				<key>IOUserClass</key>
+				<string>IOUserMIDIDriverUserClient</string>
+			</dict>
+		</dict>
+		<key>RD88Driver</key>
+		<dict>
+			<key>CFBundleIdentifier</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>CFBundleIdentifierKernel</key>
+			<string>com.apple.kpi.iokit</string>
+			<key>IOClass</key>
+			<string>IOUserService</string>
+			<key>IOProviderClass</key>
+			<string>IOUSBHostDevice</string>
+			<key>IOUserClass</key>
+			<string>RD88Driver</string>
+			<key>IOUserServerName</key>
+			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+			<key>idVendor</key>
+			<integer>1410</integer>
+			<key>idProduct</key>
+			<integer>586</integer>
+			<key>IOUserAudioDriverUserClientProperties</key>
+			<dict>
+				<key>IOClass</key>
+				<string>IOUserUserClient</string>
+				<key>IOUserClass</key>
+				<string>IOUserAudioDriverUserClient</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

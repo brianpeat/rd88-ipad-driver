@@ -1,0 +1,5 @@
+// Signing settings. Copy Local.xcconfig.example to Local.xcconfig and fill in your own
+// values; Local.xcconfig is not checked in.
+DEVELOPMENT_TEAM =
+BUNDLE_PREFIX = com.example
+#include? "Local.xcconfig"
